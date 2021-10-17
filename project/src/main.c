@@ -5,8 +5,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define ERR_ARGS_COUNT (-1)
-#define ERR_WRONG_FLG (-2)
+#define ERR_ARGS_COUNT 255
+#define ERR_WRONG_FLG (-1)
 
 #define TST_FOO_FIX     1
 #define TST_FOO_IMPL    2
@@ -40,8 +40,11 @@ int main(int argc, const char** argv) {
     switch (Test_case) {
         case TST_FOO_FIX: {
             int to = atoi(data);
-            size_t ticks_count = timer_from(to);
-            printf("%zu\n", ticks_count);
+            int ticks_count = timer_from(to);
+	    if (to > 0) {
+		printf("\n%d", ticks_count);
+	    } else {
+		printf("%d", ticks_count); }
             break;
         }
         case TST_FOO_IMPL: {

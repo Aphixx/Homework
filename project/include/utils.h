@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-size_t timer_from(unsigned char from);
+size_t timer_from(int from);
 
 int custom_pow(int base, int power);
 

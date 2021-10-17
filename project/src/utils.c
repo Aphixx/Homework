@@ -4,11 +4,15 @@
 #include <stdlib.h>
 #include <math.h>
 
-size_t timer_from(unsigned char from) {
+size_t timer_from(int from) {
     size_t counter = 0;
-    for (unsigned char i = from; ; --i) {
+    for (int i = from; i >= 0; i--) {
         ++counter;
-        printf("%c", i);
+	if (i == 0) {
+        	printf("%d", i);
+	} else {
+		printf("%d ", i);
+	}
     }
     return counter;
 }
