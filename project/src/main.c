@@ -59,14 +59,22 @@ int main(int argc, const char** argv) {
 	    break;
         }
         case TST_MOD_IMPL: {
-            int num = atoi(data);
-	    int prime = isprime(num);
-	    printf("%d\n", prime);
-	    break;
+		if (argc == 3) {
+			int num = atoi(data);
+			int prime = isprime(num);
+			printf("%d\n", prime);
+		} else {
+			return ERR_ARGS_COUNT;
+		}
+		break;
         }
 	case TST_MOD_OWN: {
-		int my_num = atoi(data);
-		recursion(my_num, 1);
+		if (argc == 3) {
+			int my_num = atoi(data);
+			recursion(my_num, 1);
+		} else {
+			return ERR_ARGS_COUNT;
+		}
 		break;
 	}
         default: {
