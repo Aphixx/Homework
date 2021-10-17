@@ -1,5 +1,6 @@
 #include "utils.h"
 #include "isprime.h"
+#include "recursion.h"
 #include <stddef.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -10,7 +11,7 @@
 #define TST_FOO_FIX     1
 #define TST_FOO_IMPL    2
 #define TST_MOD_IMPL    3
-
+#define TST_MOD_OWN	4
 
 /* NOTE(stitaevskiy):
  * We use `atoi` function just for simplification and code reducing.
@@ -46,18 +47,25 @@ int main(int argc, const char** argv) {
         case TST_FOO_IMPL: {
             if (argc == 4) {
                 int base = atoi(data);
-                int pow =  atoi(argv[3]);
-                int res = custom_pow(base, pow);
+                int power =  atoi(argv[3]);
+                int res = custom_pow(base, power);
                 printf("%i\n", res);
             } else {
                 return ERR_ARGS_COUNT;
             }
+	    break;
         }
         case TST_MOD_IMPL: {
             int num = atoi(data);
 	    int prime = isprime(num);
 	    printf("%d\n", prime);
+	    break;
         }
+	case TST_MOD_OWN: {
+		int my_num = atoi(data);
+		recursion(my_num, 1);
+		break;
+	}
         default: {
             return ERR_WRONG_FLG;
         }
