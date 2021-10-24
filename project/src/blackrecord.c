@@ -1,9 +1,12 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <stdio.h>
 #include <stdlib.h>
+#include "blackrecord.h"
 #include "utils.h"
 
 void blackRecord(FILE *ofPTR, FILE  *ofPTR_2, FILE *blackrecord, Data client_data, Data transfer) {
-	while(fscanf(ofPTR, "%d%s%s%s%s%lf%lf%lf",
+	while(fscanf(ofPTR, "%d%20s%20s%30s%15s%lf%lf%lf",
 				&client_data.Number,
 				client_data.Name,
 				client_data.Surname,
@@ -11,8 +14,8 @@ void blackRecord(FILE *ofPTR, FILE  *ofPTR_2, FILE *blackrecord, Data client_dat
 				client_data.TelNumber,
 				&client_data.indebtedness,
 				&client_data.credit_limit,
-				&client_data.cash_payments) != -1) {
-		while (fscanf(ofPTR_2, "%d %lf", &transfer.Number, &transfer.cash_payments) != -1) {
+				&client_data.cash_payments) != 0) {
+		while (fscanf(ofPTR_2, "%d %lf", &transfer.Number, &transfer.cash_payments) != 0) {
 			if(client_data.Number == transfer.Number && transfer.cash_payments != 0) {
 				client_data.credit_limit += transfer.cash_payments;
 			}
@@ -21,3 +24,4 @@ void blackRecord(FILE *ofPTR, FILE  *ofPTR_2, FILE *blackrecord, Data client_dat
 		rewind(ofPTR_2);
 	}
 }
+

@@ -1,24 +1,18 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <stdio.h>
 #include <stdlib.h>
+#include <stddef.h>
 #include "utils.h"
+#include "blackrecord.h"
 
-struct masterRecord {
-	int Number;
-	char Name[20];
-	char Surname[20];
-	char addres[30];
-	char TelNumber[15];
-	double indebtedness;
-	double credit_limit;
-	double cash_payments;
-};
-typedef struct masterRecord Data;
+
 int main(void) {
 	int choice = 0;
 	FILE *Ptr, *Ptr_2, *blackrecord;
 	Data client_data, transfer;
 	printf("%s", "please enter action\n1 enter data client:\n2 enter data transaction:\n3 update base\n" );
-	while (scanf("%d", &choice) != -1) {
+	while (scanf("%d", &choice) != 0) {
 		switch(choice) {
 			case 1:
 				Ptr = fopen("record.dat", "r+");
@@ -42,11 +36,11 @@ int main(void) {
 				Ptr = fopen("record.dat", "r");
 				Ptr_2 = fopen("transaction.dat", "r");
 				blackrecord = fopen("blackrecord.dat", "w");	
-				if (Ptr == NULL || Ptr_2 == NULL || blackRecord == NULL) {
+				if (Ptr == NULL || Ptr_2 == NULL || blackrecord == NULL) {
 					puts("exit");
 				} else {
 					blackRecord(Ptr, Ptr_2, blackrecord, client_data, transfer);
-					free(Ptr)
+					free(Ptr);
 					fclose(Ptr);
 					fclose(Ptr_2);	
 					fclose(blackrecord);
@@ -54,7 +48,7 @@ int main(void) {
 				break;
 			default:
 				puts("error");
-				break ;
+				break;
 		}
  	printf("%s", "please enter action\n1 enter data client:\n2 enter data transaction:\n3 update base\n" );
 	}

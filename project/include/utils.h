@@ -1,12 +1,24 @@
-#define UTILS_H
-#ifndef UTILS_H
+#ifndef PROJECT_INCLUDE_UTILS_H_
+#define PROJECT_INCLUDE_UTILS_H_
+#define _CRT_SECURE_NO_WARNINGS
 
-#include "client_data.c"
-#include "transaction.c"
-#include "blackrecord.c"
+#include <stdio.h>
+#include <stdlib.h>
+#include <stddef.h>
+
+struct masterRecord {
+        int Number;
+        char Name[20];
+        char Surname[20];
+        char addres[30];
+        char TelNumber[15];
+        double indebtedness;
+        double credit_limit;
+        double cash_payments;
+};
+typedef struct masterRecord Data;
 
 void masterWrite(FILE *ofPTR, Data Client);
 void transactionWrite(FILE *ofPtr, Data transfer);
-void blackRecord(FILE *ofPTR, FILE  *ofPTR_2, FILE *blackrecord, Data client_data, Data transfer);
 
-#endif //UTILS_H
+#endif //PROJECT_INCLUDE_UTILS_H_
