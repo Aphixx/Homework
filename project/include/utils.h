@@ -17,8 +17,7 @@ struct masterRecord {
         double cash_payments;
 };
 typedef struct masterRecord Data;
+extern Data client_data, transfer;
 
-void masterWrite(FILE *ofPTR, Data Client);
-void transactionWrite(FILE *ofPtr, Data transfer);
 
-#endif //PROJECT_INCLUDE_UTILS_H_
+#endif  //  PROJECT_INCLUDE_UTILS_H_
