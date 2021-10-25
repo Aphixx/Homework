@@ -11,7 +11,7 @@ SRCS = project/src/main.c\
 all: clean check test memtest
 
 $(TARGET): $(SRCS)
-	GCC -Wpedantic -Wall -Wextra -Werror -I $(HDRS_DIR) -o $(TARGET) $(CFLAGS) $(SRCS)
+	$(CC) -Wpedantic -Wall -Wextra -Werror -I $(HDRS_DIR) -o $(TARGET) $(CFLAGS) $(SRCS)
 
 build: $(TARGET)
 
