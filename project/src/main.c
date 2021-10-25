@@ -14,7 +14,7 @@ int main() {
   int choice = 0;
   FILE *Ptr, *Ptr_2, *blackrecord;
   printf("%s", "please enter action\n1 enter data client:\n2 enter data transaction:\n3 update base\n");
-  while (scanf("%d", &choice) != 0) {
+  while (scanf("%d", &choice) != EOF) {
       switch (choice) {
          case 1:
            Ptr = fopen("record.dat", "r+");

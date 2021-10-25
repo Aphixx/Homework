@@ -16,8 +16,8 @@ void blackRecord(FILE *ofPTR, FILE  *ofPTR_2, FILE *blackrecord, Data client_dat
          client_data.TelNumber,
          &client_data.indebtedness,
          &client_data.credit_limit,
-         &client_data.cash_payments) != 0) {
-         while (fscanf(ofPTR_2, "%d %lf", &transfer.Number, &transfer.cash_payments) != -1) {
+         &client_data.cash_payments) != EOF) {
+         while (fscanf(ofPTR_2, "%d %lf", &transfer.Number, &transfer.cash_payments) != EOF) {
             if (client_data.Number == transfer.Number && transfer.cash_payments != 0) {
                client_data.credit_limit += transfer.cash_payments;
             }

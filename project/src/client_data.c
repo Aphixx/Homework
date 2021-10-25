@@ -23,7 +23,7 @@ void masterWrite(FILE *ofPTR, Data Client) {
          Client.TelNumber,
          &Client.indebtedness,
          &Client.credit_limit,
-         &Client.cash_payments) != -1) {
+         &Client.cash_payments) != EOF) {
             fprintf(ofPTR, "%-12d%-11s%-11s%-16s%20s%12.2f%12.2f%12.2f\n",
                Client.Number,
                Client.Name,
