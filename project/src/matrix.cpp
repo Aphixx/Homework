@@ -42,7 +42,7 @@ namespace prep {
 		}
 		for (size_t i = 0; i < Rows; i++) {
 			for (size_t j = 0; j < Cols; j++) {
-				if(fabs(matrix[i][j] - rhs.matrix[i][j]) > std::numeric_limits<double>::epsilon()) {
+				if(fabs(matrix[i][j] - rhs.matrix[i][j]) > 1e-07) {
 					return (false);
 				}
 			}
