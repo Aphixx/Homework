@@ -5,6 +5,9 @@
 
 namespace prep {
 class Matrix {
+  size_t Rows = 0;
+  size_t Cols = 0;
+  std::vector<std::vector<double>> matrix;
  public:
   explicit Matrix(size_t rows = 0, size_t cols = 0);
   explicit Matrix(std::istream& is);
@@ -40,4 +43,8 @@ class Matrix {
 
 Matrix operator*(double val, const Matrix& matrix);
 std::ostream& operator<<(std::ostream& os, const Matrix& matrix);
+
+
+
+
 }  // namespace prep
